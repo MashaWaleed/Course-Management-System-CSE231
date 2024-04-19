@@ -1,3 +1,4 @@
+package javaproject;
 import java.util.ArrayList;
 public class CourseTest {
     private String name;
