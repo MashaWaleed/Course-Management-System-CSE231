@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-class CourseTest {
+public class CourseTest {
     private String name;
     private int duration; 
     private Instructor instructor;
