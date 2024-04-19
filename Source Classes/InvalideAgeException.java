@@ -1,3 +1,4 @@
+package javaproject;
 public class InvalideAgeException extends Exception{
     private int age;
     public InvalideAgeException(int age){
