@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-class Student extends User implements Comparable<Student> {
+public class Student extends User implements Comparable<Student> {
     private String faculty;
     private ArrayList<CourseTest> enrolledCourses=new ArrayList<>();
     private ArrayList<CourseTest> finishedCourses=new ArrayList<>();
