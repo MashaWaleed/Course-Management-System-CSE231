@@ -1,3 +1,4 @@
+package javaproject;
 import java.util.ArrayList;
 public class Student extends User implements Comparable<Student> {
     private String faculty;
