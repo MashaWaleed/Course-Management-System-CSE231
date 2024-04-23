@@ -39,7 +39,7 @@ To get started with our Course Management System, follow these steps:
 
 - [Member 1 Name] - Role: [Role in the Project]
 - [Member 2 Name] - Role: [Role in the Project]
-- [Member 3 Name] - Role: [Role in the Project]
+- Abdelrahman Taha Mohamed - Role: [Role in the Project]
 - [Member 4 Name] - Role: [Role in the Project]
 - [Member 5 Name] - Role: [Role in the Project]
 
