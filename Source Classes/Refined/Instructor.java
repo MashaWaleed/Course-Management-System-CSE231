@@ -4,6 +4,8 @@ import java.util.ArrayList;
 public class Instructor extends User {
     private String department;
     private ArrayList<Course> taughtCourses=new ArrayList<>();
+  //  private ArrayList<Quiz> createdQuizzes=new ArrayList<Quiz>();
+
 
     public Instructor(){
     }
@@ -35,6 +37,7 @@ public class Instructor extends User {
 //        return newCourse;
     }
 
+
     @Override
     public void displayInfo() {
         System.out.println("Instructor Name: " + getName());
@@ -50,6 +53,12 @@ public class Instructor extends User {
         }
         return taughtCourses;
     }
+    /*public ArrayList<Quiz> getCreatedQuizzes() {
+        if(createdQuizzes.isEmpty()){
+            System.out.println(" NO available Quizzes ");
+        }
+        return createdQuizzes;
+    }*/
 	public void setTaughtCourses(ArrayList<Course> taughtCourses) {
 		this.taughtCourses = taughtCourses;
 	}
