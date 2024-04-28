@@ -1,4 +1,4 @@
-package application;
+package project.Refined;
 import java.util.ArrayList;
 
 public class Instructor extends User {
@@ -24,10 +24,11 @@ public class Instructor extends User {
             System.out.println("taughtCourse"+(i+1) +": "+(getTaughtCourses().get(i)).getName());
         }
         }
+        else {
+            System.out.println(" NO Available Courses ");
+        }
     }
-    void addCourse(Course couse){
-         getTaughtCourses().add(couse);
-     }
+    void addCourse(Course course){getTaughtCourses().add(course);}
     public void createCourse(String courseName, String desc, Instructor inst, int price, int duration) {
     	Course newCourse = new Course(courseName,desc ,this, price, duration);
         getTaughtCourses().add(newCourse);
@@ -36,7 +37,7 @@ public class Instructor extends User {
 
     @Override
     public void displayInfo() {
-         System.out.println("Instructor Name: " + getName());
+        System.out.println("Instructor Name: " + getName());
         System.out.println("Instructor password: " + getPassword());
         System.out.println("Instructor gender: " + getGender());
         System.out.println("Instructor age: " + getAge());
@@ -44,8 +45,11 @@ public class Instructor extends User {
         System.out.println("Department: " + department);
     }
 	public ArrayList<Course> getTaughtCourses() {
-		return taughtCourses;
-	}
+		if(taughtCourses.isEmpty()){
+            System.out.println(" NO available Courses ");
+        }
+        return taughtCourses;
+    }
 	public void setTaughtCourses(ArrayList<Course> taughtCourses) {
 		this.taughtCourses = taughtCourses;
 	}

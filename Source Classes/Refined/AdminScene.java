@@ -1,4 +1,4 @@
-package application;
+package project.Refined;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

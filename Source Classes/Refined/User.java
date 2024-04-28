@@ -1,19 +1,20 @@
-package application;
+package project.Refined;
+import java.util.Date;
 public abstract class User {
     private String name;
     private String password;
-    private java.util.Date dateCreated;
+    private Date dateCreated;
     private String gender;
     private int age;
 
     public User(){
-        setDateCreated(new java.util.Date());
+        setDateCreated(new Date());
     }
     public User(String name, String password,String gender,int age)throws InvalideAgeException {
         this.name = name;
         this.password = password;
         this.gender = gender;
-        setDateCreated(new java.util.Date());
+        setDateCreated(new Date());
         if(age>=0)
             this.age=age;
         else
@@ -60,7 +61,7 @@ public abstract class User {
 	public java.util.Date getDateCreated() {
 		return dateCreated;
 	}
-	public void setDateCreated(java.util.Date dateCreated) {
+	public void setDateCreated(Date dateCreated) {
 		this.dateCreated = dateCreated;
 	}
 }
