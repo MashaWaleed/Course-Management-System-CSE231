@@ -53,4 +53,20 @@ public class Instructor extends User {
 	public void setTaughtCourses(ArrayList<Course> taughtCourses) {
 		this.taughtCourses = taughtCourses;
 	}
+    public ArrayList<Student> StudentEnrolled (String CourseName){
+        ArrayList<Student> StudentsEnrolledInCourse = new ArrayList<Student>();
+        for (int i = 0; i < getTaughtCourses().size(); i++) {
+            String str = (getTaughtCourses().get(i)).getName();
+            if(!(str.equals(CourseName))){
+                continue;
+            }
+            else{
+                StudentsEnrolledInCourse.addAll((getTaughtCourses().get(i)).getStudents());
+               break;
+            }
+
+        }
+          return StudentsEnrolledInCourse ;
+
+    }
 }

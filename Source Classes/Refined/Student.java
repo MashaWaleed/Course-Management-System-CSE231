@@ -3,25 +3,25 @@ import java.util.ArrayList;
 public class Student extends User implements Comparable<Student> {
     private String faculty;
     private int ID;
-    private ArrayList<Course> enrolledCourses=new ArrayList<>();
-    private ArrayList<Course> finishedCourses=new ArrayList<>();
+    private ArrayList<Course> enrolledCourses=new ArrayList<Course>();
+    private ArrayList<Course> finishedCourses=new ArrayList<Course>();
     private int learingHours;
     public Student(){
     }
     public Student(String name, String password,String gender, int age ,String faculty, int ID)throws InvalideAgeException {
         super(name, password,gender,age);
         this.faculty = faculty;
-        this.setID(ID);
+        setID(ID);
     }
     public int getID() {
 		return ID;
 	}
-	public void setID(int iD) {
-		ID = iD;
+	public void setID(int ID) {
+		this.ID = ID;
 	}
-    public void setFaculty(String f)
+    public void setFaculty(String faculty)
     {
-    	this.faculty = f;
+    	this.faculty = faculty;
     }
     public String getFaculty() {
         return faculty;
@@ -107,7 +107,7 @@ public class Student extends User implements Comparable<Student> {
 		this.finishedCourses = finishedCourses;
 	}
 	public ArrayList<String> getEnrolledCoursesNames() {
-        ArrayList<String> courseNames = new ArrayList<>();
+        ArrayList<String> courseNames = new ArrayList<String>();
         for (Course course : enrolledCourses) {
             courseNames.add(course.getName());
         }
