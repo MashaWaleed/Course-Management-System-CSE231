@@ -5,12 +5,12 @@ public class Student extends User implements Comparable<Student> {
     private int ID;
     private ArrayList<Course> enrolledCourses=new ArrayList<Course>();
     private ArrayList<Course> finishedCourses=new ArrayList<Course>();
-    private int learingHours;
+    private int learningHours;
     public Student(){
     }
     public Student(String name, String password,String gender, int age ,String faculty, int ID)throws InvalideAgeException {
         super(name, password,gender,age);
-        this.faculty = faculty;
+        setFaculty(faculty);
         setID(ID);
     }
     public int getID() {
@@ -27,28 +27,65 @@ public class Student extends User implements Comparable<Student> {
         return faculty;
     }
     
-    public int getLearingHours() {
-        return learingHours;
+    public int getLearningHours() {
+        return learningHours;
     }
 
-    public void setLearingHours(int learinghours) {
-       this.learingHours = learinghours;
+    public void setLearningHours(int learninghours) {
+       this.learningHours = learninghours;
     }
 
     public void enroll(Course course) {
         getEnrolledCourses().add(course);
         course.addStudent(this);
     }
-    public void unenroll(Course course) {
+    public void unroll(Course course) {
         getEnrolledCourses().remove(course);
         course.deleteStudent(this);
     }
-    public void attemptAssignments(Course course){
-        if(getEnrolledCourses().contains(course)){
-           getFinishedCourses().add(course);
+    public ArrayList<String> attemptAssignments(Course course , Assignment assignment) throws IllegalArgumentException {
+        if(getEnrolledCourses().contains(course) ){
+            if(course.getAssignments().contains(assignment)) {
+                getFinishedCourses().add(course);
+                learningHours = totalLearningHours();
+                return assignment.getQuestions();
+            }
+            throw new IllegalArgumentException("Assignment '" + assignment.getAssignmentName() +"'not found in course" +course.getName() );
         }
-        learingHours=totalLearingHours();
+        throw new IllegalArgumentException("course '" + course.getName()+"'not found. ");
     }
+    public void submitAssignment (Course course , Assignment assignment) {
+         if(getEnrolledCourses().contains(course) ){
+            if(course.getAssignments().contains(assignment)) {
+                assignment.setScore(10); //assume final score is 10
+            }
+            throw new IllegalArgumentException("Assignment '" + assignment.getAssignmentName() +"'not found in course" +course.getName() );
+        }
+        throw new IllegalArgumentException("course '" + course.getName()+"'not found. ");
+    }
+    public ArrayList<MCQ> attemptQuiz(Course course,Quiz quiz) throws IllegalArgumentException {
+        if(getEnrolledCourses().contains(course) ){
+            if(course.getQuizzes().contains(quiz)){
+                return quiz.getQuestions();
+            }
+            throw new IllegalArgumentException ("Quiz '" + quiz.getQuizName() + "' not found in course '" + course.getName() + "'.");
+        }
+        throw new IllegalArgumentException("Course '" + course.getName() + "' not found.");
+    }
+    public String submitQuiz(Course course, Quiz quiz , int StudentCorrectAnswers){
+        if (getEnrolledCourses().contains(course)){
+            if (course.getQuizzes().contains(quiz)){
+                return String.valueOf((quiz.getAverageScore()));
+            }
+            else{
+            throw new IllegalArgumentException ("Quiz '" + quiz.getQuizName() + "' not found in course '" + course.getName() + "'.");
+            }
+        }
+        else {
+        throw new IllegalArgumentException("Course '" + course.getName() + "' not found.");
+        }
+    }
+
     public void printEnrolledCourses(){
         if(!(getEnrolledCourses().isEmpty())){
         for(int i=0;i<getEnrolledCourses().size();i++){
@@ -63,8 +100,9 @@ public class Student extends User implements Comparable<Student> {
         }
         }
     }
+
     
-    private int totalLearingHours(){
+    private int totalLearningHours(){
         int x=0;
         if(!(getFinishedCourses().isEmpty())){
             for(int i=0;i<getFinishedCourses().size();i++){
@@ -81,14 +119,14 @@ public class Student extends User implements Comparable<Student> {
         System.out.println("Student age: " + getAge());
         System.out.println("Student faculty: " + getFaculty());
         System.out.println("Student account date: " + getDate());
-        System.out.println("learing hours: " + learingHours);
+        System.out.println("learning hours: " + learningHours);
     }
     @Override
     public int compareTo(Student o) {
         
-    if (this.learingHours < o.learingHours) {
+    if (this.learningHours < o.learningHours) {
     return 1;
-    } else if (this.learingHours > o.learingHours) {
+    } else if (this.learningHours > o.learningHours) {
     return -1;
     } else {
     return 0;
@@ -113,5 +151,6 @@ public class Student extends User implements Comparable<Student> {
         }
         return courseNames;
     }
+
 	
     }

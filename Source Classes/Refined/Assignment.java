@@ -1,3 +1,4 @@
+package project.Refined;
 import java.util.ArrayList;
 
 public class Assignment {
@@ -8,7 +9,7 @@ public class Assignment {
 	
 	public Assignment(ArrayList<String> Questions , String assignmentName) {
 		this.assignmentName = assignmentName;
-		this.Questions = Questions;
+		setQuestions(Questions)  ;
 	}
 	public Assignment() {
 		setAssignmentName("unnamed") ;

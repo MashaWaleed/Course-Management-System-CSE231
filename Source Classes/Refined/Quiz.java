@@ -1,14 +1,17 @@
+ package project.Refined;
+import java.security.PrivateKey;
 import java.util.ArrayList;
 
 public class Quiz {
 	private String QuizName;
 	private static int counter = 1;
 	private int averageScore = 0;
+	private int quizDuration ;
 	private ArrayList<MCQ> questions = new ArrayList<MCQ>();
 	private ArrayList<Integer> studentAnswer = new ArrayList<Integer>();
 	
 	public Quiz(String QuizName) {
-		this.QuizName = QuizName;
+		setQuizName(QuizName) ;
 	}
 	public Quiz() {
 		QuizName = "unnamed" + counter;
@@ -48,5 +51,14 @@ public class Quiz {
 	public void setQuizName(String quizName) {
 		QuizName = quizName;
 	}
-	
+
+	public int getQuizDuration() {
+		return quizDuration;
+	}
+
+	public void setQuizDuration(int quizDuration) {
+		this.quizDuration = quizDuration;
+	}
+	public void addMCQ(MCQ mcq){ questions.add(mcq);}
+
 }

@@ -34,8 +34,40 @@ public class Instructor extends User {
     public void createCourse(String courseName, String desc, Instructor inst, int price, int duration) {
     	Course newCourse = new Course(courseName,desc ,this, price, duration);
         getTaughtCourses().add(newCourse);
-//        return newCourse;
+
     }
+    public void createdQuiz(String quizName, ArrayList<MCQ>Questions, Course course, int duration) throws IllegalArgumentException {
+         Quiz newQuiz = new Quiz(quizName);
+         newQuiz.setQuestions(Questions);
+         newQuiz.setQuizDuration(duration);
+         if(getTaughtCourses().contains(course)){
+                 course.addQuiz(newQuiz);
+                 return;
+         }
+        throw new IllegalArgumentException("Course '" + course.getName() + "' not found.");
+    }
+    public void  createdMCQ(String Question, String[] choices, Course course,Quiz quiz,int answer ) throws IllegalArgumentException{
+         MCQ newMCQ = new MCQ(Question,choices,answer);
+        if (getTaughtCourses().contains(course)){
+            if(course.getQuizzes().contains(quiz)){
+            quiz.addMCQ(newMCQ);
+        }else {
+                throw new IllegalArgumentException("Quiz '" + quiz.getQuizName() + "' not found in course '" + course.getName() + "'.");
+            }
+        }else{
+            throw new IllegalArgumentException("Course '" + course.getName() + "' not found.");
+        }
+
+    }
+    public void createdAssignment(String assignmentName, ArrayList<String>Questions, Course course ) throws IllegalArgumentException {
+        Assignment newAssignment = new Assignment(Questions,assignmentName);
+        if(getTaughtCourses().contains(course) ){
+               course.addAssignment(newAssignment);
+               return;
+        }
+        throw new IllegalArgumentException("Course '" + course.getName() + "' not found.");
+    }
+
 
 
     @Override
@@ -75,7 +107,7 @@ public class Instructor extends User {
             }
 
         }
-          return StudentsEnrolledInCourse ;
+        return StudentsEnrolledInCourse ;
 
     }
 }

@@ -23,6 +23,7 @@ public class Course implements Comparable<Course> {
 		this.description = desc;
 		this.inst = inst;
 		this.setPrice(price);
+		setDuration(duration);
 		
 	}
 	@Override public int compareTo(Course comp) {//need avg stars!

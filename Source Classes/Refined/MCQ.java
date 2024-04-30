@@ -1,4 +1,4 @@
-
+package project.Refined;
 public class MCQ {
 	private String Question;
 	private String[] choices;
