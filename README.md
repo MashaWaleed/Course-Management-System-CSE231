@@ -6,6 +6,7 @@ Welcome to our project repository for CSE 231's Advanced Computer Programming Pr
 
 The Course Management System is designed to provide a user-friendly interface for managing online courses. It allows administrators, instructors, and students to perform various tasks such as creating and enrolling in courses, managing assignments and quizzes, grading submissions, and more.
 
+
 ## Features
 
 - **User Management:** Create and manage user accounts for administrators, instructors, and students.
