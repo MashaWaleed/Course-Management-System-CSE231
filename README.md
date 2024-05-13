@@ -6,6 +6,8 @@ Welcome to our project repository for CSE 231's Advanced Computer Programming Pr
 
 The Course Management System is designed to provide a user-friendly interface for managing online courses. It allows administrators, instructors, and students to perform various tasks such as creating and enrolling in courses, managing assignments and quizzes, grading submissions, and more.
 
+!["UML"](https://github.com/MashaWaleed/Course-Management-System-CSE231/blob/main/UML/UML.png?raw=true)
+
 
 ## Features
 
@@ -15,7 +17,8 @@ The Course Management System is designed to provide a user-friendly interface fo
 - **Grading Functionality:** Automate grading processes and provide feedback to students on their submissions.
 - **Interactive Dashboard:** User-friendly dashboard interface for easy navigation and access to course materials and resources.
 - **Role-based Access Control:** Role-based access control to ensure security and privacy of course materials and student information.
-
+- 
+!["Welcome"](https://github.com/MashaWaleed/Course-Management-System-CSE231/blob/main/UML/welcome.png?raw=true)
 ## Getting Started
 
 To get started with our Course Management System, follow these steps:
